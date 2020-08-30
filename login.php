@@ -14,9 +14,9 @@ $senha = $_POST['pass'];
 
 /* Conectando com o banco de dados para cadastrar registros */
 
-$datasource = 'pgsql:host=192.168.0.104; port=5432;dbname=sqlinjection';
-$user = 'postgres';
-$pass = 'bd123';
+$datasource = 'pgsql:host= COLOQUE O HOST; port=COLOQUE A PORTA ;dbname=sqlinjection';
+$user = 'COLOQUE O USUARIO';
+$pass = 'COLOQUE A SENHA';
 $db = new PDO($datasource, $user, $pass);
 	
 $query = "SELECT * FROM cliente WHERE nome='$usuario' AND senha='$senha'";
