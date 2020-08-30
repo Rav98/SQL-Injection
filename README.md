@@ -23,7 +23,9 @@ O SQL Injection consiste em uma técnica de injeção de código com capacidade 
    
 ## Como Executar a aplicação:  
 
-#### 1. Primeiramente precisamos restaurar o arquivo database ``` SQLInjection.backup``` no servidor do PostgreSQL.
+#### 1. Primeiramente precisamos criar uma database nova com o nome ```sqlinjection```. Depois, restaure o arquivo ``` SQLInjection.backup``` no database ```sqlinjection``` que foi criado. 
+
+
 
 #### 2. Após a configuração do PostgreSQL, abra o arquivo ```login.php``` e na linha **17** coloque o host e a porta do servidor. Na linha **18** coloque o usuário e na linha **19** coloque a senha de acesso do servidor onde você restaurou o databese.
 
