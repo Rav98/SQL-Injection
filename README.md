@@ -25,7 +25,7 @@ O SQL Injection consiste em uma técnica de injeção de código com capacidade 
 
 #### 1. Primeiramente precisamos criar uma database nova com o nome ```sqlinjection```. Depois, restaure o arquivo ``` SQLInjection.backup``` no database ```sqlinjection``` que foi criado. 
 
-
+![imagemsql](https://user-images.githubusercontent.com/46981155/91649266-68803900-ea48-11ea-9cba-d9457d067ad5.png)
 
 #### 2. Após a configuração do PostgreSQL, abra o arquivo ```login.php``` e na linha **17** coloque o host e a porta do servidor. Na linha **18** coloque o usuário e na linha **19** coloque a senha de acesso do servidor onde você restaurou o databese.
 
@@ -56,7 +56,7 @@ O SQL Injection consiste em uma técnica de injeção de código com capacidade 
 
 ![imagem6sqli](https://user-images.githubusercontent.com/46981155/91649082-1a6a3600-ea46-11ea-82d3-442c0778d21c.png)
 
-#### Pronto! Agora pode se replicar a falha SQL Ingection conforme explicado no tópico abaixo **Como Funciona**.
+#### Pronto! Agora pode se replicar a falha SQL Ingection conforme explicado no tópico acima ( Como Funciona ).
 
    
 
