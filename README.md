@@ -12,14 +12,23 @@ Esta aplicação foi feita atendendo os requisitos da atividade avaliativa da ma
    Contem o código em PHP, responsavel por fazer a conexão com o banco.
 - ### Style.css
    Contem o código em CSS, responsavel pelo estilo de cores, imagens e fonte da pagina da aplicação.
-- ### Style.css
+- ### SQLInjection.backup
    Arquivo com o banco de dados do PostgreSQL, disponibilizado para restaurar e testar a aplicação.
    
 ## Como Funciona
 
 O SQL Injection consiste em uma técnica de injeção de código com capacidade de acessar ao banco de dados, o que representa um risco. Ocorre, geralmente, durante a entrada de um usuário. Quando solicita-se ao usuário a entrada no sistema, como um nome/senha, o usuário fornece, em vez disso, uma instrução em SQL que será executada no banco de dados sem o conhecimento do administrador do banco.
 
-#(FLAVIO EXPLCIA AQUI)
+No arquivo ```login.php```, o login será concretizado se o usuário e senha digitados corresponderem a um dos pares usuário-senha cadastrados no banco de dados. Para realizar essa conferência, há uma query na aplicação que, por meio de um SELECT, varre o banco para verificar os pares usuário-senha cadastrados. Essa query é da seguinte forma:
+
+```SELECT * FROM cliente WHERE nome='$usuario' AND senha='$senha'```
+
+As variáveis $usuario e $senha são recebidas na página login.php e correspondem ao que for digitado pelo usuário da aplicação. Há apenas um usuário cadastrado, "teste", com senha "12345". É possível realizar login utilizando-o. Contudo, ao deixar o campo de login em branco e digitar ```'or''='```no campo de senha, manipula-se a SQL, que será lida da seguinte forma:
+
+```SELECT * FROM cliente WHERE nome='' AND senha=''or''=''```
+
+O SQL Injection ocorre, portanto, porque há uma manipulação da SQL através do uso do caracter ', de modo que nome e senha estão vazios e '' = '', ou seja, a aplicação permitirá o login porque vazio é igual a vazio.
+
    
 ## Como Executar a aplicação:  
 
@@ -52,11 +61,11 @@ O SQL Injection consiste em uma técnica de injeção de código com capacidade 
 
 ![imagem5sqli](https://user-images.githubusercontent.com/46981155/91649079-11796480-ea46-11ea-88c4-02153df2e108.png)
 
-#### 8. Após ligar o servidor, abra o navegar e digite o endereço http://localhost/index.php
+#### 8. Após ligar o servidor, abra o navegador e digite o endereço: http://localhost/index.php (esse endereço pode variar de acordo com o nome do projeto criado):
 
 ![imagem6sqli](https://user-images.githubusercontent.com/46981155/91649082-1a6a3600-ea46-11ea-82d3-442c0778d21c.png)
 
-#### Pronto! Agora pode se replicar a falha SQL Ingection conforme explicado no tópico acima ( Como Funciona ).
+#### Pronto! Agora pode se replicar a falha SQL Ingection conforme explicado no tópico ```Como funciona```.
 
    
 
